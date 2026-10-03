@@ -1,0 +1,134 @@
+=======================================================
+Starting Delivery Robot Digital Twin System...
+=======================================================
+Running initial cleanup...
+ 61824[1/5] Starting LiDAR...
+[INFO] [launch]: All log files can be found below /home/tttruc/.ros/log/2026-09-16-22-10-50-690477-tttruc-desktop-63167
+[INFO] [launch]: Default logging verbosity is set to INFO
+[INFO] [rplidar_node-1]: process started with pid [63181]
+[rplidar_node-1] [INFO] [1789571450.875566000] [rplidar_node]: RPLidar running on ROS2 package rplidar_ros. RPLIDAR SDK Version:2.1.0
+[rplidar_node-1] [INFO] [1789571450.992310769] [rplidar_node]: RPLidar S/N: 9ADCFA89C7E19EC8BCE499F0110B5670
+[rplidar_node-1] [INFO] [1789571450.992585594] [rplidar_node]: Firmware Ver: 1.29
+[rplidar_node-1] [INFO] [1789571450.992668285] [rplidar_node]: Hardware Rev: 7
+[rplidar_node-1] [INFO] [1789571450.994159373] [rplidar_node]: RPLidar health status : 0
+[rplidar_node-1] [INFO] [1789571450.994229391] [rplidar_node]: RPLidar health status : OK.
+[rplidar_node-1] [INFO] [1789571450.998159246] [rplidar_node]: Start
+[rplidar_node-1] [INFO] [1789571451.237821878] [rplidar_node]: current scan mode: Sensitivity, sample rate: 8 Khz, max_distance: 12.0 m, scan frequency:10.0 Hz, 
+[2/5] Starting TF Publishers (odom -> base_link -> laser)...
+[WARN] [1789571453.464143363] []: Old-style arguments are deprecated; see --help for new-style arguments
+[WARN] [1789571453.474289002] []: Old-style arguments are deprecated; see --help for new-style arguments
+[INFO] [1789571453.505882856] [static_transform_publisher_lhMi7foumAyss6GJ]: Spinning until stopped - publishing transform
+translation: ('0.000000', '0.000000', '0.000000')
+rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+from 'odom' to 'base_link'
+[INFO] [1789571453.505982315] [static_transform_publisher_BrYswdIue70wf6KV]: Spinning until stopped - publishing transform
+translation: ('0.000000', '0.000000', '0.000000')
+rotation: ('0.000000', '0.000000', '0.000000', '1.000000')
+from 'base_link' to 'laser'
+[2.5/5] Starting ESP32 Bridge...
+[3/5] Starting SLAM Toolbox...
+[INFO] [1789571455.539971323] [esp32_serial_bridge]: Connected to ESP32 on serial port /dev/ttyUSB1 @ 115200
+[INFO] [1789571455.620445762] [slam_toolbox]: Using solver plugin solver_plugins::CeresSolver
+[4/5] Starting Flask Backend...
+[WARN] [1789571457.482437684] [slam_toolbox]: minimum laser range setting (0.0 m) exceeds the capabilities of the used Lidar (0.2 m)
+[WARN] [1789571457.482805088] [slam_toolbox]: maximum laser range setting (25.0 m) exceeds the capabilities of the used Lidar (12.0 m)
+Registering sensor: [Custom Described Lidar]
+🚀 Flask Backend starting on http://0.0.0.0:5000...
+ * Serving Flask app 'flask_backend'
+ * Debug mode: off
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://192.168.1.11:5000
+Press CTRL+C to quit
+[5/5] Starting React Frontend...
+
+=======================================================
+ALL SYSTEMS GO! 
+Open your browser to: http://localhost:5173
+Press Ctrl+C at any time to gracefully stop all processes.
+=======================================================
+Showing live logs below (mixed from all services):
+
+
+> @figma/my-make-file@0.0.1 dev
+> vite --host 0.0.0.0
+
+
+  VITE v6.3.5  ready in 777 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://192.168.1.11:5173/
+127.0.0.1 - - [16/Sep/2026 22:11:25] "POST /api/control HTTP/1.1" 200 -
+127.0.0.1 - - [16/Sep/2026 22:11:25] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:11:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:11:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:11:36] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:11:36] "GET /api/map?t=1789571496634 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:12:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:12:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:12:36] "GET /api/map?t=1789571556641 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:12:36] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:13:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:13:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:13:36] "GET /api/map?t=1789571616637 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:13:36] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:14:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:14:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:14:36] "GET /api/map?t=1789571676639 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:14:36] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:15:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:15:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:15:36] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:15:36] "GET /api/map?t=1789571736624 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:16:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:16:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:16:36] "GET /api/uart HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:16:36] "GET /api/map?t=1789571796625 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:17:36] "GET /api/position HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:17:36] "GET /api/status HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:17:36] "GET /api/map?t=1789571856631 HTTP/1.1" 200 -
+192.168.1.4 - - [16/Sep/2026 22:17:36] "GET /api/uart HTTP/1.1" 200 -
+[INFO] [1789571873.254573690] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1789571873.421042561] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+[INFO] [1789571873.421615026] [rclcpp]: signal_handler(SIGINT/SIGTERM)
+./start_robot.sh: line 98: 63426 Killed                  python3 flask_backend.py  (wd: ~/delivery_robot/digital_twin/backend)
+Traceback (most recent call last):
+  File "/home/tttruc/delivery_robot/ros2_ws/install/esp32_bridge/lib/python3.10/site-packages/esp32_bridge/esp32_serial_node.py", line 157, in main
+    rclpy.spin(node)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 229, in spin
+    executor.spin_once()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 808, in spin_once
+    self._spin_once_impl(timeout_sec)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 805, in _spin_once_impl
+    raise handler.exception()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/task.py", line 272, in _execute_coroutine_step
+    result = coro.send(None)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 488, in handler
+    await call_coroutine(entity, arg)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 396, in _execute_timer
+    await await_or_execute(tmr.callback)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/executors.py", line 110, in await_or_execute
+    return callback(*args)
+  File "/home/tttruc/delivery_robot/ros2_ws/install/esp32_bridge/lib/python3.10/site-packages/esp32_bridge/esp32_serial_node.py", line 138, in update_loop
+    self.tf_broadcaster.sendTransform(t)
+  File "/opt/ros/humble/lib/python3.10/site-packages/tf2_ros/transform_broadcaster.py", line 77, in sendTransform
+    self.pub_tf.publish(TFMessage(transforms=transform))
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/publisher.py", line 70, in publish
+    self.__publisher.publish(msg)
+rclpy._rclpy_pybind11.RCLError: Failed to publish: publisher's context is invalid, at ./src/rcl/publisher.c:389
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/tttruc/delivery_robot/ros2_ws/install/esp32_bridge/lib/esp32_bridge/esp32_serial_node", line 33, in <module>
+    sys.exit(load_entry_point('esp32-bridge==0.1.0', 'console_scripts', 'esp32_serial_node')())
+  File "/home/tttruc/delivery_robot/ros2_ws/install/esp32_bridge/lib/python3.10/site-packages/esp32_bridge/esp32_serial_node.py", line 162, in main
+    rclpy.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/__init__.py", line 130, in shutdown
+    _shutdown(context=context)
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/utilities.py", line 58, in shutdown
+    return context.shutdown()
+  File "/opt/ros/humble/local/lib/python3.10/dist-packages/rclpy/context.py", line 102, in shutdown
+    self.__context.shutdown()
+rclpy._rclpy_pybind11.RCLError: failed to shutdown: rcl_shutdown already called on the given context, at ./src/rcl/init.c:241

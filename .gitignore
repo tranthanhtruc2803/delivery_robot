@@ -1,0 +1,31 @@
+# Tệp bỏ qua các file không cần thiết đẩy lên Github
+
+# ROS 2 Build files (Rất nặng và sinh ra tự động)
+ros2_ws/build/
+ros2_ws/install/
+ros2_ws/log/
+
+# Node.js (Frontend React)
+digital_twin/node_modules/
+digital_twin/frontend/node_modules/
+digital_twin/frontend/dist/
+digital_twin/frontend/build/
+
+# Python Cache
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.env
+
+# Large dataset files (>100MB exceeds GitHub limits)
+*.h5
+*.engine
+*.onnx.data
+
+# OS generated files
+.DS_Store
+Thumbs.db

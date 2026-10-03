@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>delivery_robot_bringup</name>
+  <version>0.1.0</version>
+  <description>Master bringup package for delivery robot (launch files, TF, Nav2 params)</description>
+  <maintainer email="tttruc@todo.todo">tttruc</maintainer>
+  <license>Apache-2.0</license>
+
+  <depend>rclpy</depend>
+  <depend>launch</depend>
+  <depend>launch_ros</depend>
+  <depend>nav2_bringup</depend>
+  <depend>slam_toolbox</depend>
+
+  <export>
+    <build_type>ament_python</build_type>
+  </export>
+</package>

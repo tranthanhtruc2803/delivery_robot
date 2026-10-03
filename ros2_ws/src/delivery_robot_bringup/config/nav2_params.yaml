@@ -1,0 +1,102 @@
+amcl:
+  ros__parameters:
+    use_sim_time: false
+    alpha1: 0.2
+    alpha2: 0.2
+    alpha3: 0.2
+    alpha4: 0.2
+    alpha5: 0.2
+    base_frame_id: "base_footprint"
+    global_frame_id: "map"
+    odom_frame_id: "odom"
+    scan_topic: scan
+
+local_costmap:
+  local_costmap:
+    ros__parameters:
+      update_frequency: 5.0
+      publish_frequency: 2.0
+      global_frame: odom
+      robot_base_frame: base_link
+      use_sim_time: false
+      rolling_window: true
+      width: 3
+      height: 3
+      resolution: 0.05
+      footprint: "[ [0.3, 0.25], [0.3, -0.25], [-0.3, -0.25], [-0.3, 0.25] ]"
+      plugins: ["obstacle_layer", "human_layer", "inflation_layer"]
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+          raytrace_range: 3.0
+          obstacle_max_range: 2.5
+
+      human_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: human_points
+        human_points:
+          topic: /detected_humans_points
+          max_obstacle_height: 2.0
+          clearing: True
+          marking: True
+          data_type: "PointCloud2"
+          raytrace_range: 4.0
+          obstacle_max_range: 3.5
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55
+
+global_costmap:
+  global_costmap:
+    ros__parameters:
+      update_frequency: 1.0
+      publish_frequency: 1.0
+      global_frame: map
+      robot_base_frame: base_link
+      use_sim_time: false
+      footprint: "[ [0.3, 0.25], [0.3, -0.25], [-0.3, -0.25], [-0.3, 0.25] ]"
+      resolution: 0.05
+      track_unknown_space: true
+      plugins: ["static_layer", "obstacle_layer", "human_layer", "inflation_layer"]
+
+      static_layer:
+        plugin: "nav2_costmap_2d::StaticLayer"
+        map_subscribe_transient_local: True
+
+      obstacle_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: scan
+        scan:
+          topic: /scan
+          clearing: True
+          marking: True
+          data_type: "LaserScan"
+
+      human_layer:
+        plugin: "nav2_costmap_2d::ObstacleLayer"
+        enabled: True
+        observation_sources: human_points
+        human_points:
+          topic: /detected_humans_points
+          clearing: True
+          marking: True
+          data_type: "PointCloud2"
+          raytrace_range: 4.0
+          obstacle_max_range: 3.5
+
+      inflation_layer:
+        plugin: "nav2_costmap_2d::InflationLayer"
+        cost_scaling_factor: 3.0
+        inflation_radius: 0.55
